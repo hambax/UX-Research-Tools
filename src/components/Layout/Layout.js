@@ -136,10 +136,6 @@ const Layout = ({ children }) => {
           sx={{ 
             flexGrow: 1,
             p: 3,
-            transition: theme.transitions.create('margin', {
-              easing: theme.transitions.easing.sharp,
-              duration: transitionDuration,
-            }),
           }}
         >
           {children}
