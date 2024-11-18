@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ux-research-tools/static/css/main.63bc76bc.css",
-    "main.js": "/ux-research-tools/static/js/main.b277615d.js",
+    "main.js": "/ux-research-tools/static/js/main.1cecf490.js",
     "static/js/488.e8d0e9b5.chunk.js": "/ux-research-tools/static/js/488.e8d0e9b5.chunk.js",
     "index.html": "/ux-research-tools/index.html",
     "main.63bc76bc.css.map": "/ux-research-tools/static/css/main.63bc76bc.css.map",
-    "main.b277615d.js.map": "/ux-research-tools/static/js/main.b277615d.js.map",
+    "main.1cecf490.js.map": "/ux-research-tools/static/js/main.1cecf490.js.map",
     "488.e8d0e9b5.chunk.js.map": "/ux-research-tools/static/js/488.e8d0e9b5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.63bc76bc.css",
-    "static/js/main.b277615d.js"
+    "static/js/main.1cecf490.js"
   ]
 }
