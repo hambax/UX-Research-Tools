@@ -612,7 +612,7 @@ const CardSort = ({ readOnly, configId }) => {
           onClose={() => setOpenItemDialog(false)}
           PaperProps={{
             sx: {
-              bgcolor: 'rgba(255, 255, 255, 0.5)',
+              bgcolor: 'rgba(255, 255, 255, 0.8)',
               backdropFilter: 'blur(20px)',
               borderRadius: 2,
               boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
@@ -649,7 +649,7 @@ const CardSort = ({ readOnly, configId }) => {
           onClose={() => setOpenCategoryDialog(false)}
           PaperProps={{
             sx: {
-              bgcolor: 'rgba(255, 255, 255, 0.5)',
+              bgcolor: 'rgba(255, 255, 255, 0.8)',
               backdropFilter: 'blur(20px)',
               borderRadius: 2,
               boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
@@ -688,9 +688,13 @@ const CardSort = ({ readOnly, configId }) => {
           fullWidth
           PaperProps={{
             sx: {
+              bgcolor: 'rgba(255, 255, 255, 0.8)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: 2,
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              border: '1px solid rgba(255, 255, 255, 0.18)',
               '& *': {
-                fontSize: '16px',
-                fontFamily: 'Inter',
+                fontFamily: 'Inter, sans-serif',
               }
             }
           }}
@@ -755,9 +759,13 @@ const CardSort = ({ readOnly, configId }) => {
           }}
           PaperProps={{
             sx: {
+              bgcolor: 'rgba(255, 255, 255, 0.8)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: 2,
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              border: '1px solid rgba(255, 255, 255, 0.18)',
               '& *': {
-                fontSize: '16px',
-                fontFamily: 'Inter',
+                fontFamily: 'Inter, sans-serif',
               }
             }
           }}
