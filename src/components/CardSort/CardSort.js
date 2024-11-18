@@ -607,14 +607,18 @@ const CardSort = ({ readOnly, configId }) => {
         </Box>
 
         {/* Add Item Dialog */}
-        <Dialog 
-          open={openItemDialog} 
+        <Dialog
+          open={openItemDialog}
           onClose={() => setOpenItemDialog(false)}
           PaperProps={{
             sx: {
+              bgcolor: 'rgba(255, 255, 255, 0.5)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: 2,
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              border: '1px solid rgba(255, 255, 255, 0.18)',
               '& *': {
-                fontSize: '16px',
-                fontFamily: 'Inter',
+                fontFamily: 'Inter, sans-serif',
               }
             }
           }}
@@ -640,14 +644,18 @@ const CardSort = ({ readOnly, configId }) => {
         </Dialog>
 
         {/* Add Category Dialog */}
-        <Dialog 
-          open={openCategoryDialog} 
+        <Dialog
+          open={openCategoryDialog}
           onClose={() => setOpenCategoryDialog(false)}
           PaperProps={{
             sx: {
+              bgcolor: 'rgba(255, 255, 255, 0.5)',
+              backdropFilter: 'blur(20px)',
+              borderRadius: 2,
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              border: '1px solid rgba(255, 255, 255, 0.18)',
               '& *': {
-                fontSize: '16px',
-                fontFamily: 'Inter',
+                fontFamily: 'Inter, sans-serif',
               }
             }
           }}
@@ -673,8 +681,8 @@ const CardSort = ({ readOnly, configId }) => {
         </Dialog>
 
         {/* Results Dialog */}
-        <Dialog 
-          open={openResultsDialog} 
+        <Dialog
+          open={openResultsDialog}
           onClose={() => setOpenResultsDialog(false)}
           maxWidth="md"
           fullWidth
@@ -714,8 +722,8 @@ const CardSort = ({ readOnly, configId }) => {
                 </Button>
               </Stack>
             </Box>
-            <Box 
-              sx={{ 
+            <Box
+              sx={{
                 backgroundColor: (theme) => theme.palette.grey[100],
                 p: '20px',
                 borderRadius: 1,
@@ -723,8 +731,8 @@ const CardSort = ({ readOnly, configId }) => {
                 overflow: 'auto'
               }}
             >
-              <pre style={{ 
-                whiteSpace: 'pre-wrap', 
+              <pre style={{
+                whiteSpace: 'pre-wrap',
                 wordBreak: 'break-word',
                 margin: 0,
                 fontFamily: 'monospace'
@@ -739,8 +747,8 @@ const CardSort = ({ readOnly, configId }) => {
         </Dialog>
 
         {/* Import Dialog */}
-        <Dialog 
-          open={openImportDialog} 
+        <Dialog
+          open={openImportDialog}
           onClose={() => {
             setOpenImportDialog(false);
             setImportError('');
@@ -787,7 +795,7 @@ const CardSort = ({ readOnly, configId }) => {
             </label>
           </DialogContent>
           <DialogActions>
-            <Button 
+            <Button
               onClick={() => {
                 setOpenImportDialog(false);
                 setImportError('');
