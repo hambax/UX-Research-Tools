@@ -408,19 +408,33 @@ const CardSort = ({ readOnly, configId }) => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <Box sx={{ p: { xs: 1, sm: 2 } }}>
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="h4" gutterBottom sx={{ fontSize: '2rem', fontFamily: 'Inter' }}>
+      <Box sx={{ 
+        maxWidth: '100%',
+      }}>
+        <Box sx={{ mb: '20px' }}>
+          <Typography 
+            variant="h4" 
+            gutterBottom 
+            sx={{ 
+              fontSize: { xs: '1.75rem', sm: '2rem' }, 
+              fontFamily: 'Inter',
+              mb: '20px'
+            }}
+          >
             Card Sort Exercise
           </Typography>
           <Stack 
             direction={{ xs: 'column', sm: 'row' }} 
-            spacing={2}
             sx={{ 
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '20px',
               '& > button': { 
-                width: { xs: '100%', sm: 'auto' },
-                fontSize: '16px',
+                flex: { xs: '1 1 100%', sm: '0 1 auto' },
+                minWidth: { sm: '150px' },
+                fontSize: '0.9rem',
                 fontFamily: 'Inter',
+                whiteSpace: 'nowrap',
               }
             }}
           >
@@ -457,11 +471,9 @@ const CardSort = ({ readOnly, configId }) => {
                 startIcon={<ShareIcon />}
                 onClick={handleShare}
                 sx={{
-                  mb: 2,
-                  ml: 2,
-                  backgroundColor: '#0000FF',
+                  backgroundColor: theme.palette.primary.main,
                   '&:hover': {
-                    backgroundColor: '#0000CC',
+                    backgroundColor: theme.palette.primary.dark,
                   },
                 }}
               >
@@ -476,10 +488,13 @@ const CardSort = ({ readOnly, configId }) => {
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr',
-              sm: 'repeat(auto-fill, minmax(300px, 1fr))',
+              sm: 'repeat(auto-fit, minmax(280px, 1fr))',
+              md: 'repeat(auto-fit, minmax(300px, 1fr))',
+              lg: 'repeat(auto-fit, minmax(320px, 1fr))',
             },
-            gap: 3,
-            pb: 2,
+            gap: '20px',
+            pb: '20px',
+            mr: '20px',
             '& > *': {
               minWidth: 'unset !important',
               width: '100%',
@@ -488,18 +503,22 @@ const CardSort = ({ readOnly, configId }) => {
         >
           {/* Uncategorized Items Column */}
           <Paper 
+            elevation={2}
             sx={{ 
-              p: 2, 
-              height: 'calc(100vh - 200px)',
+              p: '20px',
+              height: {
+                xs: 'calc(100vh - 250px)',
+                sm: 'calc(100vh - 200px)'
+              },
               display: 'flex',
               flexDirection: 'column',
               '& *': {
-                fontSize: '16px',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
                 fontFamily: 'Inter',
               }
             }}
           >
-            <Typography variant="h6" gutterBottom sx={{ fontSize: '1.25rem' }}>
+            <Typography variant="h6" gutterBottom sx={{ mb: '20px', fontSize: '1.25rem' }}>
               Uncategorized Items
             </Typography>
 
@@ -523,18 +542,26 @@ const CardSort = ({ readOnly, configId }) => {
             <Paper
               key={category.id}
               sx={{
-                p: 2,
-                height: 'calc(100vh - 200px)',
+                p: '20px',
+                height: {
+                  xs: 'calc(100vh - 250px)',
+                  sm: 'calc(100vh - 200px)'
+                },
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'relative',
                 '& *': {
-                  fontSize: '16px',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
                   fontFamily: 'Inter',
                 }
               }}
             >
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+              <Box sx={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center', 
+                mb: '20px' 
+              }}>
                 <Typography variant="h6" sx={{ fontSize: '1.25rem' }}>
                   {category.name}
                 </Typography>
@@ -662,7 +689,7 @@ const CardSort = ({ readOnly, configId }) => {
         >
           <DialogTitle>Card Sort Results</DialogTitle>
           <DialogContent>
-            <Box sx={{ mb: 2 }}>
+            <Box sx={{ mb: '20px' }}>
               <Stack direction="row" spacing={2} alignItems="flex-start">
                 <FormControl sx={{ minWidth: 120 }}>
                   <InputLabel id="export-format-label">Format</InputLabel>
@@ -690,7 +717,7 @@ const CardSort = ({ readOnly, configId }) => {
             <Box 
               sx={{ 
                 backgroundColor: (theme) => theme.palette.grey[100],
-                p: 2,
+                p: '20px',
                 borderRadius: 1,
                 maxHeight: '400px',
                 overflow: 'auto'
@@ -729,7 +756,7 @@ const CardSort = ({ readOnly, configId }) => {
         >
           <DialogTitle>Import Data</DialogTitle>
           <DialogContent>
-            <Box sx={{ mb: 2 }}>
+            <Box sx={{ mb: '20px' }}>
               <Typography variant="body1" gutterBottom>
                 Please select a file to import. Each cell in your file will be converted into a separate card.
               </Typography>
@@ -737,7 +764,7 @@ const CardSort = ({ readOnly, configId }) => {
                 Supported formats: .csv, .xlsx, .xls
               </Typography>
               {importError && (
-                <Alert severity="error" sx={{ mt: 1 }}>
+                <Alert severity="error" sx={{ mt: '20px' }}>
                   {importError}
                 </Alert>
               )}

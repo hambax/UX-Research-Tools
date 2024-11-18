@@ -1,6 +1,7 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
 import CardSort from './components/CardSort/CardSort';
@@ -11,70 +12,50 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Box from '@mui/material/Box';
 
+const theme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+  typography: {
+    fontFamily: [
+      'Inter',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      `,
+    },
+  },
+});
+
 function App() {
   const [mode, setMode] = useState('light');
 
-  const theme = useMemo(
+  const themeMode = useMemo(
     () =>
       createTheme({
         palette: {
           mode,
           primary: {
-            main: '#0000FF',
-            light: '#3333FF',
-            dark: '#0000CC',
-            contrastText: '#FFFFFF',
+            main: '#1976d2',
           },
-          background: {
-            default: mode === 'light' ? '#FFFFFF' : '#121212',
-            paper: mode === 'light' ? '#FFFFFF' : '#1E1E1E',
-          },
-          text: {
-            primary: mode === 'light' ? '#000000' : '#FFFFFF',
-          },
-        },
-        typography: {
-          fontFamily: 'Inter, sans-serif',
-          fontSize: 16,
-        },
-        components: {
-          MuiButton: {
-            styleOverrides: {
-              root: {
-                textTransform: 'none',
-              },
-              contained: {
-                backgroundColor: '#0000FF',
-                color: '#FFFFFF',
-                '&:hover': {
-                  backgroundColor: '#0000CC',
-                },
-              },
-              outlined: {
-                borderColor: '#0000FF',
-                color: '#0000FF',
-                '&:hover': {
-                  borderColor: '#0000FF',
-                  backgroundColor: 'rgba(0, 0, 255, 0.04)',
-                },
-              },
-            },
-          },
-          MuiPaper: {
-            styleOverrides: {
-              root: {
-                backgroundImage: 'none',
-              },
-            },
-          },
-          MuiIconButton: {
-            styleOverrides: {
-              root: {
-                '&:hover': {
-                  color: '#0000FF',
-                },
-              },
-            },
+          secondary: {
+            main: '#dc004e',
           },
         },
       }),
@@ -94,9 +75,9 @@ function App() {
         onClick={() => setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))}
         color="inherit"
         sx={{
-          bgcolor: theme.palette.background.paper,
+          bgcolor: themeMode.palette.background.paper,
           '&:hover': {
-            bgcolor: theme.palette.action.hover,
+            bgcolor: themeMode.palette.action.hover,
           },
         }}
       >
@@ -106,7 +87,7 @@ function App() {
   );
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeMode}>
       <CssBaseline />
       <ThemeToggle />
       <Router>

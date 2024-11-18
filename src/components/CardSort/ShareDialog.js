@@ -56,37 +56,51 @@ const ShareDialog = ({ open, onClose, shareableLink, onSendEmail }) => {
     >
       <DialogTitle>Share Card Sort</DialogTitle>
       <DialogContent>
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="subtitle1" gutterBottom>
-            Share this link with participants:
+        <Box sx={{ mb: '20px' }}>
+          <Typography variant="body1" gutterBottom>
+            Share this link with participants to collect their card sorting results.
           </Typography>
-          <TextField
-            fullWidth
-            value={shareableLink}
-            variant="outlined"
-            InputProps={{
-              readOnly: true,
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton onClick={handleCopyLink} edge="end">
-                    <ContentCopyIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            gap: '20px',
+            mt: '20px' 
+          }}>
+            <TextField
+              fullWidth
+              value={shareableLink}
+              variant="outlined"
+              InputProps={{
+                readOnly: true,
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleCopyLink} edge="end">
+                      <ContentCopyIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={handleCopyLink}
+              sx={{ whiteSpace: 'nowrap' }}
+            >
+              Copy Link
+            </Button>
+          </Box>
           {copied && (
-            <Alert severity="success" sx={{ mt: 1 }}>
+            <Alert severity="success" sx={{ mt: '20px' }}>
               Link copied to clipboard!
             </Alert>
           )}
         </Box>
         
-        <Box sx={{ mb: 2 }}>
-          <Typography variant="subtitle1" gutterBottom>
+        <Box sx={{ mb: '20px' }}>
+          <Typography variant="body1" gutterBottom>
             Or send via email:
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1 }}>
+          <Box sx={{ display: 'flex', gap: '20px', mt: '20px' }}>
             <TextField
               fullWidth
               value={email}

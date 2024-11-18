@@ -18,57 +18,60 @@ export function SortableItem({ id, children, onRemove }) {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
-    cursor: 'grab',
-    position: 'relative',
-    marginBottom: '8px',
-    fontSize: '16px',
-    fontFamily: 'Inter',
   };
 
   return (
-    <Paper
+    <Box
       ref={setNodeRef}
       style={style}
       {...attributes}
       {...listeners}
-      elevation={isDragging ? 4 : 1}
       sx={{
-        p: 2,
+        p: '20px',
+        mb: '20px',
+        backgroundColor: 'background.paper',
+        borderRadius: 1,
+        boxShadow: 1,
+        cursor: 'grab',
         '&:hover': {
-          '& .delete-button': {
-            opacity: 1,
-          },
+          boxShadow: 2,
         },
-        '& *': {
-          fontSize: '16px',
-          fontFamily: 'Inter',
-        }
+        '&:active': {
+          cursor: 'grabbing',
+        },
       }}
     >
-      <Box sx={{ pr: 4 }}>
-        {children}
-        <IconButton
-          className="delete-button"
-          size="small"
-          onClick={(e) => {
-            e.stopPropagation();
-            onRemove();
-          }}
-          sx={{
-            position: 'absolute',
-            top: 4,
-            right: 4,
-            opacity: 0,
-            transition: 'opacity 0.2s',
-            bgcolor: 'background.paper',
-            '&:hover': {
-              bgcolor: 'action.hover',
-            },
-          }}
-        >
-          <DeleteIcon fontSize="small" />
-        </IconButton>
+      <Box sx={{ 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '20px'
+      }}>
+        <Box sx={{ pr: 4 }}>
+          {children}
+          <IconButton
+            className="delete-button"
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemove();
+            }}
+            sx={{
+              position: 'absolute',
+              top: 4,
+              right: 4,
+              opacity: 0,
+              transition: 'opacity 0.2s',
+              bgcolor: 'background.paper',
+              '&:hover': {
+                bgcolor: 'action.hover',
+              },
+            }}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </Box>
       </Box>
-    </Paper>
+    </Box>
   );
 }
